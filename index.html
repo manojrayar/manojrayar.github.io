@@ -32,6 +32,11 @@
     .headline{font-size:28px;margin:0 0 8px}
     .sub{color:var(--muted);margin-bottom:14px}
 
+    /* pills for skills cloud */
+    .skills-cloud{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .pill{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.06);font-size:13px;font-weight:500;color:#e6eef6;border:1px solid rgba(255,255,255,0.05);white-space:nowrap;transition:background .3s ease, transform .2s ease}
+    .pill:hover{background:var(--accent);color:#041025;transform:translateY(-3px)}
+
     /* timeline */
     .timeline{margin-top:26px;padding:18px}
     .tl-item{display:flex;gap:18px;margin:18px 0;align-items:flex-start}
@@ -91,8 +96,13 @@
         <div class="card" style="margin-top:14px">
           <strong>Professional summary</strong>
           <p class="muted" style="margin:8px 0 0">Certified Azure Devops Engineer with 4 years of experience across automation, CI/CD, containers and observability.</p>
-          <div style="margin-top:10px" class="skills-cloud">
-            <span class="pill">Azure</span><span class="pill">Terraform</span><span class="pill">Ansible</span><span class="pill">Docker</span><span class="pill">Kubernetes</span><span class="pill">GitHub Actions</span>
+          <div class="skills-cloud">
+            <span class="pill">Azure</span>
+            <span class="pill">Terraform</span>
+            <span class="pill">Ansible</span>
+            <span class="pill">Docker</span>
+            <span class="pill">Kubernetes</span>
+            <span class="pill">GitHub Actions</span>
           </div>
         </div>
 
@@ -191,7 +201,7 @@
       </div>
       <div class="contact">
         <a class="btn" href="mailto:mallikarjunrayar003@gmail.com">Email</a>
-        <a class="btn" href="./Mallikarjun Rayar_Resume.pdf" target="_blank">Download PDF</a>
+        <a class="btn" href="/resume.pdf" target="_blank">Download PDF</a>
       </div>
     </footer>
   </div>
@@ -202,7 +212,6 @@
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    // basic reveal observer for .reveal elements
     const reveals=document.querySelectorAll('.reveal');
     const observer=new IntersectionObserver(entries=>{
       entries.forEach(e=>{
@@ -211,7 +220,6 @@
     },{threshold:0.15});
     reveals.forEach(r=>observer.observe(r));
 
-    // optional gsap entrance effects for header
     gsap.from('.logo',{y:-10,opacity:0,duration:.6,delay:.1});
     gsap.from('.intro',{y:-6,opacity:0,duration:.6,delay:.12});
   </script>
