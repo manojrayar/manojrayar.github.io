@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mallikarjun Rayar — Interactive Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8; --glass: rgba(255,255,255,0.04);
+      --maxw:1100px; --radius:14px;
+      --glass-2: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071028 0%, #07172a 50%, #031423 100%);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial; color:#e6eef6}
+    a{color:var(--accent);text-decoration:none}
+    .wrap{max-width:var(--maxw);margin:40px auto;padding:36px;border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 8px 30px rgba(2,6,23,0.7)}
+    header{display:flex;gap:20px;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:16px;align-items:center}
+    .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#4f46e5);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;color:#041025}
+    .intro{line-height:1}
+    h1{margin:0;font-size:22px;letter-spacing:0.4px}
+    p.lead{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+    nav{display:flex;gap:12px}
+    .btn{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;font-weight:600;font-size:13px}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;margin-top:28px;align-items:start}
+    .card{background:linear-gradient(180deg,var(--glass),var(--glass-2));padding:20px;border-radius:var(--radius);backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,0.02)}
+    .hero-left{padding:10px}
+    .headline{font-size:28px;margin:0 0 8px}
+    .sub{color:var(--muted);margin-bottom:14px}
+
+    /* timeline */
+    .timeline{margin-top:26px;padding:18px}
+    .tl-item{display:flex;gap:18px;margin:18px 0;align-items:flex-start}
+    .dot{width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 6px 16px rgba(6,182,212,0.12)}
+    .tl-content h4{margin:0 0 6px}
+    .muted{color:var(--muted);font-size:13px}
+
+    /* projects grid */
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
+    .project{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.02);transition:transform .28s ease, box-shadow .28s ease}
+    .project:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    .project h5{margin:0 0 8px}
+
+    /* skills meter */
+    .skill-row{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:8px 0}
+    .meter{flex:1;height:10px;background:rgba(255,255,255,0.04);border-radius:999px;overflow:hidden;margin-left:12px}
+    .meter > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#7c3aed);width:60%}
+
+    footer{display:flex;justify-content:space-between;align-items:center;margin-top:26px}
+    .contact{display:flex;gap:12px;align-items:center}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .projects-grid{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:16px}
+      nav{order:3}
+    }
+
+    /* animation helpers */
+    .reveal{opacity:0;transform:translateY(15px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">MR</div>
+        <div class="intro">
+          <h1>Mallikarjun Rayar</h1>
+          <p class="lead">Azure DevOps Engineer — automation, cloud-native infra & release reliability</p>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="#timeline">Experience</a>
+        <a class="btn" href="#projects">Projects</a>
+        <a class="btn" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-left card">
+        <h2 class="headline">I build reliable cloud platforms and sane release pipelines.</h2>
+        <p class="sub">Narrative: I help teams ship faster by automating infrastructure, improving observability and reducing toil — with a pragmatic, team-first approach.</p>
+
+        <div class="card" style="margin-top:14px">
+          <strong>Professional summary</strong>
+          <p class="muted" style="margin:8px 0 0">Certified Azure Devops Engineer with 4 years of experience across automation, CI/CD, containers and observability.</p>
+          <div style="margin-top:10px" class="skills-cloud">
+            <span class="pill">Azure</span><span class="pill">Terraform</span><span class="pill">Ansible</span><span class="pill">Docker</span><span class="pill">Kubernetes</span><span class="pill">GitHub Actions</span>
+          </div>
+        </div>
+
+        <div class="timeline card" id="timeline">
+          <h3 style="margin:0 0 10px">Experience — timeline</h3>
+          <div class="tl-item reveal">
+            <div class="dot"></div>
+            <div class="tl-content">
+              <h4>Accenture — DevOps Engineer</h4>
+              <div class="muted">Jan 2025 – Present • Bengaluru</div>
+              <p class="muted">Designed CI/CD using Azure DevOps & GitHub Actions, automated infra with Terraform & Ansible, migrated apps from Windows to Linux (70% cost savings), and improved release reliability.</p>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="dot"></div>
+            <div class="tl-content">
+              <h4>Infosys — DevOps / Automation Specialist</h4>
+              <div class="muted">Nov 2021 – Jan 2025 • Bengaluru</div>
+              <p class="muted">Led automation with Ansible and Terraform, removed Jenkins dependency, built monitoring & recovery workflows, orchestrated AKS clusters and improved SLA adherence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card" style="height:100%">
+        <h4 style="margin-top:0">Quick facts</h4>
+        <p class="muted" style="margin-bottom:10px">Location: Bengaluru, Karnataka</p>
+        <p class="muted">Email: <a href="mailto:mallikarjunrayar003@gmail.com">mallikarjunrayar003@gmail.com</a></p>
+        <p class="muted">Phone: +91 8495099327</p>
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:12px 0">
+        <h5 style="margin:0 0 8px">Certifications</h5>
+        <ul class="muted" style="margin:6px 0 0;padding-left:18px">
+          <li>AZ-400: DevOps Engineer Expert</li>
+          <li>AZ-104, AZ-900, DP-300</li>
+          <li>Google Cloud: Cloud Digital Leader</li>
+        </ul>
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:12px 0">
+        <h5 style="margin:0 0 8px">Education</h5>
+        <p class="muted" style="margin:0">MCA — Chandigarh University (2022–2024)</p>
+      </aside>
+    </section>
+
+    <section id="skills" style="margin-top:20px">
+      <div class="card">
+        <h3 style="margin-top:0">Skills & proficiency</h3>
+        <div style="display:flex;gap:18px;flex-wrap:wrap">
+          <div style="flex:1;min-width:220px">
+            <div class="skill-row"><strong>Terraform</strong><div class="meter"><i style="width:75%"></i></div></div>
+            <div class="skill-row"><strong>Ansible</strong><div class="meter"><i style="width:80%"></i></div></div>
+            <div class="skill-row"><strong>Azure DevOps / GitHub Actions</strong><div class="meter"><i style="width:82%"></i></div></div>
+          </div>
+          <div style="flex:1;min-width:220px">
+            <div class="skill-row"><strong>Docker</strong><div class="meter"><i style="width:78%"></i></div></div>
+            <div class="skill-row"><strong>AKS / Kubernetes</strong><div class="meter"><i style="width:68%"></i></div></div>
+            <div class="skill-row"><strong>Monitoring (App Insights, New Relic)</strong><div class="meter"><i style="width:70%"></i></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" style="margin-top:20px">
+      <div class="card">
+        <h3 style="margin-top:0">Selected projects</h3>
+        <div class="projects-grid">
+          <article class="project reveal">
+            <h5>Windows → Linux App Migration</h5>
+            <div class="meta">Accenture — Performance & cost optimisation</div>
+            <p class="muted">Migrated enterprise web apps from Windows App Service to Linux App Service Plans; reduced costs by ~70% and improved performance. Included app configuration for App Insights and New Relic.</p>
+          </article>
+
+          <article class="project reveal">
+            <h5>GitHub Tag & Release Automation (POC)</h5>
+            <div class="meta">CI/CD tooling</div>
+            <p class="muted">Automated tag and release generation to streamline rollback and auditing. Improved release reliability and developer experience.</p>
+          </article>
+
+          <article class="project reveal">
+            <h5>Infrastructure as Code Platform</h5>
+            <div class="meta">Terraform + Ansible</div>
+            <p class="muted">Created repeatable Terraform modules and Ansible playbooks for provisioning AKS clusters, storage, and secured Key Vault access across environments.</p>
+          </article>
+
+          <article class="project reveal">
+            <h5>Observability & Auto Recovery</h5>
+            <div class="meta">Monitoring & resiliency</div>
+            <p class="muted">Designed monitoring, alerting, and automated recovery workflows for critical services using App Insights, Prometheus and Alertmanager with Ansible remediation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact" class="card">
+      <div>
+        <h3 style="margin-top:0">Let's build something reliable together</h3>
+        <p class="muted">Email me at <a href="mailto:mallikarjunrayar003@gmail.com">mallikarjunrayar003@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/mallikarjun-rayar-04b638191/" target="_blank">LinkedIn</a>.</p>
+      </div>
+      <div class="contact">
+        <a class="btn" href="mailto:mallikarjunrayar003@gmail.com">Email</a>
+        <a class="btn" href="./Mallikarjun Rayar_Resume.pdf" target="_blank">Download PDF</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // basic reveal observer for .reveal elements
+    const reveals=document.querySelectorAll('.reveal');
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){e.target.classList.add('visible');}
+      });
+    },{threshold:0.15});
+    reveals.forEach(r=>observer.observe(r));
+
+    // optional gsap entrance effects for header
+    gsap.from('.logo',{y:-10,opacity:0,duration:.6,delay:.1});
+    gsap.from('.intro',{y:-6,opacity:0,duration:.6,delay:.12});
+  </script>
+</body>
+</html>
