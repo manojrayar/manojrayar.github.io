@@ -1,227 +1,346 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mallikarjun Rayar — Interactive Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mallikarjun Rayar | DevOps & SRE</title>
+  <meta name="description" content="Senior DevOps, DevSecOps & SRE Engineer portfolio" />
   <style>
-    :root{
-      --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8; --glass: rgba(255,255,255,0.04);
-      --maxw:1100px; --radius:14px;
-      --glass-2: rgba(255,255,255,0.03);
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071028 0%, #07172a 50%, #031423 100%);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial; color:#e6eef6}
-    a{color:var(--accent);text-decoration:none}
-    .wrap{max-width:var(--maxw);margin:40px auto;padding:36px;border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 8px 30px rgba(2,6,23,0.7)}
-    header{display:flex;gap:20px;align-items:center;justify-content:space-between}
-    .brand{display:flex;gap:16px;align-items:center}
-    .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#4f46e5);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;color:#041025}
-    .intro{line-height:1}
-    h1{margin:0;font-size:22px;letter-spacing:0.4px}
-    p.lead{margin:6px 0 0;color:var(--muted);font-size:14px}
-
-    nav{display:flex;gap:12px}
-    .btn{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;font-weight:600;font-size:13px}
-    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;margin-top:28px;align-items:start}
-    .card{background:linear-gradient(180deg,var(--glass),var(--glass-2));padding:20px;border-radius:var(--radius);backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,0.02)}
-    .hero-left{padding:10px}
-    .headline{font-size:28px;margin:0 0 8px}
-    .sub{color:var(--muted);margin-bottom:14px}
-
-    /* pills for skills cloud */
-    .skills-cloud{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-    .pill{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.06);font-size:13px;font-weight:500;color:#e6eef6;border:1px solid rgba(255,255,255,0.05);white-space:nowrap;transition:background .3s ease, transform .2s ease}
-    .pill:hover{background:var(--accent);color:#041025;transform:translateY(-3px)}
-
-    /* timeline */
-    .timeline{margin-top:26px;padding:18px}
-    .tl-item{display:flex;gap:18px;margin:18px 0;align-items:flex-start}
-    .dot{width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 6px 16px rgba(6,182,212,0.12)}
-    .tl-content h4{margin:0 0 6px}
-    .muted{color:var(--muted);font-size:13px}
-
-    /* projects grid */
-    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
-    .project{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.02);transition:transform .28s ease, box-shadow .28s ease}
-    .project:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
-    .project h5{margin:0 0 8px}
-
-    /* skills meter */
-    .skill-row{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:8px 0}
-    .meter{flex:1;height:10px;background:rgba(255,255,255,0.04);border-radius:999px;overflow:hidden;margin-left:12px}
-    .meter > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#7c3aed);width:60%}
-
-    footer{display:flex;justify-content:space-between;align-items:center;margin-top:26px}
-    .contact{display:flex;gap:12px;align-items:center}
-
-    /* responsive */
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr;}
-      .projects-grid{grid-template-columns:1fr}
-      header{flex-direction:column;align-items:flex-start;gap:16px}
-      nav{order:3}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+      background: linear-gradient(180deg, #020617, #020617 40%, #020617);
+      color: var(--text);
+      line-height: 1.6;
     }
-
-    /* animation helpers */
-    .reveal{opacity:0;transform:translateY(15px);transition:opacity .6s ease,transform .6s ease}
-    .reveal.visible{opacity:1;transform:translateY(0)}
+    a { color: var(--accent); text-decoration: none; }
+    .container { max-width: 1100px; margin: auto; padding: 2rem 1.25rem; }
+    header { padding: 4rem 0; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.75rem;
+      background: rgba(56,189,248,0.15);
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    h1 { font-size: 2.6rem; line-height: 1.2; margin-bottom: 1rem; }
+    h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+    p { color: var(--muted); }
+    .cta {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 0.75rem 1.2rem;
+      border-radius: 0.6rem;
+      background: var(--accent);
+      color: #020617;
+      font-weight: 600;
+      border: none;
+    }
+    .btn.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid rgba(56,189,248,0.4);
+    }
+    section { margin-top: 4rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .card h3 { margin-bottom: 0.5rem; }
+    ul { margin-top: 0.5rem; padding-left: 1.2rem; }
+    li { color: var(--muted); margin-bottom: 0.4rem; }
+    footer {
+      margin-top: 5rem;
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      h1 { font-size: 2.1rem; }
+    }
+      .diagram-thumb{margin-top:1rem;padding:0.75rem;border:1px dashed rgba(255,255,255,0.2);border-radius:0.75rem;text-align:center;color:var(--accent);cursor:pointer}
+    .modal{display:none;position:fixed;inset:0;background:rgba(2,6,23,0.85);align-items:center;justify-content:center;z-index:50}
+    .modal-content{background:var(--card);padding:1.5rem;border-radius:1rem;max-width:900px;width:90%}
+    .modal-content img{width:100%;border-radius:0.75rem}
+    .close{margin-top:1rem;display:inline-block;color:var(--accent);cursor:pointer}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">MR</div>
-        <div class="intro">
-          <h1>Mallikarjun Rayar</h1>
-          <p class="lead">Azure DevOps Engineer — automation, cloud-native infra & release reliability</p>
-        </div>
-      </div>
-      <nav>
-        <a class="btn" href="#timeline">Experience</a>
-        <a class="btn" href="#projects">Projects</a>
-        <a class="btn" href="#contact">Contact</a>
-      </nav>
-    </header>
-
-    <section class="hero">
-      <div class="hero-left card">
-        <h2 class="headline">I build reliable cloud platforms and sane release pipelines.</h2>
-        <p class="sub">Narrative: I help teams ship faster by automating infrastructure, improving observability and reducing toil — with a pragmatic, team-first approach.</p>
-
-        <div class="card" style="margin-top:14px">
-          <strong>Professional summary</strong>
-          <p class="muted" style="margin:8px 0 0">Certified Azure Devops Engineer with 4 years of experience across automation, CI/CD, containers and observability.</p>
-          <div class="skills-cloud">
-            <span class="pill">Azure</span>
-            <span class="pill">Terraform</span>
-            <span class="pill">Ansible</span>
-            <span class="pill">Docker</span>
-            <span class="pill">Kubernetes</span>
-            <span class="pill">GitHub Actions</span>
-          </div>
-        </div>
-
-        <div class="timeline card" id="timeline">
-          <h3 style="margin:0 0 10px">Experience — timeline</h3>
-          <div class="tl-item reveal">
-            <div class="dot"></div>
-            <div class="tl-content">
-              <h4>Accenture — DevOps Engineer</h4>
-              <div class="muted">Jan 2025 – Present • Bengaluru</div>
-              <p class="muted">Designed CI/CD using Azure DevOps & GitHub Actions, automated infra with Terraform & Ansible, migrated apps from Windows to Linux (70% cost savings), and improved release reliability.</p>
-            </div>
-          </div>
-          <div class="tl-item reveal">
-            <div class="dot"></div>
-            <div class="tl-content">
-              <h4>Infosys — DevOps / Automation Specialist</h4>
-              <div class="muted">Nov 2021 – Jan 2025 • Bengaluru</div>
-              <p class="muted">Led automation with Ansible and Terraform, removed Jenkins dependency, built monitoring & recovery workflows, orchestrated AKS clusters and improved SLA adherence.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <aside class="card" style="height:100%">
-        <h4 style="margin-top:0">Quick facts</h4>
-        <p class="muted" style="margin-bottom:10px">Location: Bengaluru, Karnataka</p>
-        <p class="muted">Email: <a href="mailto:mallikarjunrayar003@gmail.com">mallikarjunrayar003@gmail.com</a></p>
-        <p class="muted">Phone: +91 8495099327</p>
-        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:12px 0">
-        <h5 style="margin:0 0 8px">Certifications</h5>
-        <ul class="muted" style="margin:6px 0 0;padding-left:18px">
-          <li>AZ-400: DevOps Engineer Expert</li>
-          <li>AZ-104, AZ-900, DP-300</li>
-          <li>Google Cloud: Cloud Digital Leader</li>
-        </ul>
-        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:12px 0">
-        <h5 style="margin:0 0 8px">Education</h5>
-        <p class="muted" style="margin:0">MCA — Chandigarh University (2022–2024)</p>
-      </aside>
-    </section>
-
-    <section id="skills" style="margin-top:20px">
-      <div class="card">
-        <h3 style="margin-top:0">Skills & proficiency</h3>
-        <div style="display:flex;gap:18px;flex-wrap:wrap">
-          <div style="flex:1;min-width:220px">
-            <div class="skill-row"><strong>Terraform</strong><div class="meter"><i style="width:75%"></i></div></div>
-            <div class="skill-row"><strong>Ansible</strong><div class="meter"><i style="width:80%"></i></div></div>
-            <div class="skill-row"><strong>Azure DevOps / GitHub Actions</strong><div class="meter"><i style="width:82%"></i></div></div>
-          </div>
-          <div style="flex:1;min-width:220px">
-            <div class="skill-row"><strong>Docker</strong><div class="meter"><i style="width:78%"></i></div></div>
-            <div class="skill-row"><strong>AKS / Kubernetes</strong><div class="meter"><i style="width:68%"></i></div></div>
-            <div class="skill-row"><strong>Monitoring (App Insights, New Relic)</strong><div class="meter"><i style="width:70%"></i></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" style="margin-top:20px">
-      <div class="card">
-        <h3 style="margin-top:0">Selected projects</h3>
-        <div class="projects-grid">
-          <article class="project reveal">
-            <h5>Windows → Linux App Migration</h5>
-            <div class="meta">Accenture — Performance & cost optimisation</div>
-            <p class="muted">Migrated enterprise web apps from Windows App Service to Linux App Service Plans; reduced costs by ~70% and improved performance. Included app configuration for App Insights and New Relic.</p>
-          </article>
-
-          <article class="project reveal">
-            <h5>GitHub Tag & Release Automation (POC)</h5>
-            <div class="meta">CI/CD tooling</div>
-            <p class="muted">Automated tag and release generation to streamline rollback and auditing. Improved release reliability and developer experience.</p>
-          </article>
-
-          <article class="project reveal">
-            <h5>Infrastructure as Code Platform</h5>
-            <div class="meta">Terraform + Ansible</div>
-            <p class="muted">Created repeatable Terraform modules and Ansible playbooks for provisioning AKS clusters, storage, and secured Key Vault access across environments.</p>
-          </article>
-
-          <article class="project reveal">
-            <h5>Observability & Auto Recovery</h5>
-            <div class="meta">Monitoring & resiliency</div>
-            <p class="muted">Designed monitoring, alerting, and automated recovery workflows for critical services using App Insights, Prometheus and Alertmanager with Ansible remediation.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <footer id="contact" class="card">
+  <header class="container">
+    <div class="hero">
       <div>
-        <h3 style="margin-top:0">Let's build something reliable together</h3>
-        <p class="muted">Email me at <a href="mailto:mallikarjunrayar003@gmail.com">mallikarjunrayar003@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/mallikarjun-rayar-04b638191/" target="_blank">LinkedIn</a>.</p>
+        <span class="badge">DevOps • DevSecOps • SRE</span>
+        <h1>Mallikarjun Rayar</h1>
+        <p>
+          Azure & AWS DevOps / Site Reliability Engineer with 4+ years of experience
+          designing, automating, securing and operating cloud‑native platforms.
+        </p>
+        <div class="cta">
+          <a class="btn" href="Mallikarjun_DevOpsSRE.pdf" target="_blank">Download Resume</a>
+          <a class="btn secondary" href="https://www.linkedin.com/in/mallikarjun-rayar-04b638191/" target="_blank">LinkedIn</a>
+        </div>
       </div>
-      <div class="contact">
-        <a class="btn" href="mailto:mallikarjunrayar003@gmail.com">Email</a>
-        <a class="btn" href="/resume.pdf" target="_blank">Download PDF</a>
+      <div class="card">
+        <h3>Core Expertise</h3>
+        <ul>
+          <li>Azure, AWS, Multi‑Cloud Architecture</li>
+          <li>CI/CD – Azure DevOps, GitHub Actions, Jenkins</li>
+          <li>Terraform, ARM, Bicep, CloudFormation</li>
+          <li>AKS, EKS, Docker, Kubernetes</li>
+          <li>DevSecOps, SRE, Observability</li>
+        </ul>
       </div>
-    </footer>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>About Me</h2>
+      <div class="card">
+        <p>
+          I am a Senior DevOps, DevSecOps & Site Reliability Engineer with over 4+ years of experience
+          helping enterprises design, automate, secure, and operate highly available cloud platforms.
+          I specialize in Azure and AWS environments, focusing on CI/CD automation, Infrastructure as Code,
+          Kubernetes orchestration, cloud security, and reliability engineering.
+        </p>
+        <p>
+          I enjoy solving complex infrastructure problems, improving developer productivity, reducing
+          operational toil, and ensuring systems meet strict SLA and SLO targets. I have worked in
+          large-scale enterprise environments and collaborated closely with developers, architects,
+          security teams, and business stakeholders.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skillset</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Cloud & Platforms</h3>
+          <ul>
+            <li>Azure & AWS multi-cloud architecture</li>
+            <li>PaaS, IaaS, serverless & container platforms</li>
+            <li>AKS, EKS, ECS, Azure App Services</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>CI/CD & Automation</h3>
+          <ul>
+            <li>Azure DevOps Pipelines, GitHub Actions, Jenkins</li>
+            <li>GitHub Enterprise administration & governance</li>
+            <li>GitOps, YAML pipelines, release automation</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Infrastructure as Code</h3>
+          <ul>
+            <li>Terraform modules & environments</li>
+            <li>ARM Templates, Bicep, CloudFormation</li>
+            <li>Ansible & configuration automation</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>DevSecOps & Security</h3>
+          <ul>
+            <li>Secure CI/CD pipelines & secrets management</li>
+            <li>Azure Key Vault, IAM, RBAC, TLS</li>
+            <li>Vulnerability scanning & compliance practices</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Observability & SRE</h3>
+          <ul>
+            <li>Azure Monitor, Application Insights</li>
+            <li>CloudWatch, New Relic, Grafana</li>
+            <li>Incident management, RCA, MTTR reduction</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Impact & Metrics</h2>
+      <div class="grid">
+        <div class="card"><h3>40%</h3><p>Reduction in release cycle time through CI/CD automation</p></div>
+        <div class="card"><h3>70%</h3><p>Infrastructure cost optimization via Windows-to-Linux migration</p></div>
+        <div class="card"><h3>75%</h3><p>Improvement in SLA compliance through automation & monitoring</p></div>
+        <div class="card"><h3>↓ MTTR</h3><p>Faster incident detection using observability & SRE practices</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Key Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Enterprise CI/CD Platform Automation</h3>
+          <div class="diagram-thumb" onclick="openModal('cicd')">View CI/CD Architecture</div>
+          <p>
+            Designed and implemented end-to-end CI/CD pipelines for enterprise applications using
+            Azure DevOps, GitHub Actions, and GitHub Enterprise.
+          </p>
+          <ul>
+            <li>Built reusable YAML pipelines for build, test, security scan, and deployment stages</li>
+            <li>Enabled multi-environment deployments (DEV, QA, STG, PROD)</li>
+            <li>Integrated SonarQube, secrets management, and approval gates</li>
+            <li>Reduced release cycle time by ~40%</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Infrastructure as Code – Azure & AWS</h3>
+          <div class="diagram-thumb" onclick="openModal('iac')">View IaC Architecture</div>
+          <p>
+            Automated cloud infrastructure provisioning using Infrastructure as Code to ensure
+            consistency, security, and scalability across environments.
+          </p>
+          <ul>
+            <li>Developed Terraform modules for Azure and AWS resources</li>
+            <li>Provisioned App Services, AKS, Storage, APIM, EC2, EKS, and RDS</li>
+            <li>Implemented environment isolation and remote state management</li>
+            <li>Improved deployment reliability and reduced manual errors</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Kubernetes & Microservices Platform</h3>
+          <div class="diagram-thumb" onclick="openModal('k8s')">View Kubernetes Architecture</div>
+          <p>
+            Built and operated containerized microservices platforms on AKS and EKS
+            following cloud-native and SRE best practices.
+          </p>
+          <ul>
+            <li>Deployed Dockerized microservices using Helm charts</li>
+            <li>Implemented blue-green and rolling deployment strategies</li>
+            <li>Configured autoscaling, health probes, and resource limits</li>
+            <li>Ensured high availability and fault tolerance</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>DevSecOps & Cloud Security Implementation</h3>
+          <div class="diagram-thumb" onclick="openModal('security')">View Security Architecture</div>
+          <p>
+            Strengthened security posture across CI/CD pipelines and cloud environments
+            by embedding DevSecOps practices.
+          </p>
+          <ul>
+            <li>Integrated SonarQube and vulnerability scanning in pipelines</li>
+            <li>Implemented IAM, RBAC, and least-privilege access</li>
+            <li>Managed secrets using Azure Key Vault</li>
+            <li>Enabled TLS and secure network configurations</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Observability & Site Reliability Engineering</h3>
+          <div class="diagram-thumb" onclick="openModal('sre')">View Observability Architecture</div>
+          <p>
+            Improved system reliability and operational visibility through observability
+            and SRE practices.
+          </p>
+          <ul>
+            <li>Implemented monitoring with Azure Monitor, Application Insights, and CloudWatch</li>
+            <li>Configured alerts, dashboards, and log analytics</li>
+            <li>Led incident response, RCA, and post-incident reviews</li>
+            <li>Improved MTTR and SLA compliance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Professional Experience</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Accenture</h3>
+          <p>DevOps & Site Reliability Engineer | Jan 2025 – Present</p>
+          <ul>
+            <li>Designed and implemented enterprise CI/CD pipelines using Azure DevOps and GitHub Actions</li>
+            <li>Automated cloud infrastructure provisioning using Terraform, ARM and Ansible</li>
+            <li>Led Windows-to-Linux migration resulting in ~70% infrastructure cost optimization</li>
+            <li>Implemented DevSecOps practices including SonarQube, secure secrets and TLS enforcement</li>
+            <li>Built observability using Application Insights and New Relic to improve MTTR</li>
+            <li>Administered AKS clusters and GitHub Enterprise organizations</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Infosys</h3>
+          <p>DevOps / Cloud Specialist | Nov 2021 – Jan 2025</p>
+          <ul>
+            <li>Built AWS CI/CD pipelines using Jenkins, GitHub Actions and CodePipeline</li>
+            <li>Provisioned scalable AWS infrastructure using Terraform and CloudFormation</li>
+            <li>Deployed and managed Dockerized microservices on EKS</li>
+            <li>Implemented monitoring, auto-healing and alerting using CloudWatch and Lambda</li>
+            <li>Improved SLA compliance by 75% through automation and proactive monitoring</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <div class="grid">
+        <div class="card">Microsoft Azure DevOps Engineer Expert (AZ-400)</div>
+        <div class="card">Microsoft Azure Administrator Associate (AZ-104)</div>
+        <div class="card">Microsoft Azure Fundamentals (AZ-900)</div>
+        <div class="card">Google Cloud Certified – Digital Leader</div>
+        <div class="card">AWS Certified Cloud Practitioner (In Progress)</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Mallikarjun Rayar • Built for DevOps roles
+  </footer>
+
+<div id="modal" class="modal" onclick="closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <img id="modal-img" src="" alt="Architecture Diagram" />
+    <span class="close" onclick="closeModal()">Close</span>
   </div>
+</div>
 
-  <!-- GSAP + ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-
-    const reveals=document.querySelectorAll('.reveal');
-    const observer=new IntersectionObserver(entries=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){e.target.classList.add('visible');}
-      });
-    },{threshold:0.15});
-    reveals.forEach(r=>observer.observe(r));
-
-    gsap.from('.logo',{y:-10,opacity:0,duration:.6,delay:.1});
-    gsap.from('.intro',{y:-6,opacity:0,duration:.6,delay:.12});
-  </script>
+<script>
+  function openModal(type){
+    const map={
+      cicd:'diagrams/cicd-architecture.png',
+      iac:'diagrams/iac-architecture.png',
+      k8s:'diagrams/k8s-architecture.png',
+      security:'diagrams/security-architecture.png',
+      sre:'diagrams/observability-architecture.png'
+    };
+    document.getElementById('modal-img').src=map[type];
+    document.getElementById('modal').style.display='flex';
+  }
+  function closeModal(){document.getElementById('modal').style.display='none';}
+</script>
 </body>
 </html>
